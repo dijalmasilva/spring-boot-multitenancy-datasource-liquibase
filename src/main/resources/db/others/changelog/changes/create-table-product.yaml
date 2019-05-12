@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Dijalma Silva
+      changes:
+        - createTable:
+            tableName: PRODUCT_TB
+            columns:
+              - column:
+                  name: ID
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: NAME
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: VALUE
+                  type: numeric(19,2)
+                  constraints:
+                    nullable: false

@@ -1,0 +1,34 @@
+spring:
+  dataSources:
+    - tenantId: db1
+      url: jdbc:postgresql://localhost:5432/db1
+      username: postgres
+      password: 123456
+      driver-class-name: org.postgresql.Driver
+      liquibase:
+        enabled: true
+        default-schema: public
+        change-log: classpath:db/master/changelog/db.changelog-master.yaml
+    - tenantId: db2
+      url: jdbc:postgresql://localhost:5432/db2
+      username: postgres
+      password: 123456
+      driver-class-name: org.postgresql.Driver
+    - tenantId: db3
+      url: jdbc:postgresql://localhost:5432/db3
+      username: postgres
+      password: 123456
+      driver-class-name: org.postgresql.Driver
+  liquibase:
+    enabled: true
+    default-schema: public
+    change-log: classpath:db/others/changelog/db.changelog-master.yaml
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+  profiles:
+    active: dev
